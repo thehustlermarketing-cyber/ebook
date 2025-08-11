@@ -1,0 +1,108 @@
+/* Reset and Base Styles */
+*,*::before,*::after{box-sizing:border-box}*{margin:0}html,body{height:100%}body{line-height:1.5;-webkit-font-smoothing:antialiased;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,sans-serif;background:#0b1020;color:#e5e7eb}img,picture,video,canvas,svg{display:block;max-width:100%}input,button,textarea,select{font:inherit}p,h1,h2,h3,h4,h5,h6{overflow-wrap:break-word}
+
+/* CSS Variables */
+:root{--bg-primary:#0b1020;--bg-surface:#0f172a;--bg-surface-light:#111827;--text-primary:#e5e7eb;--text-muted:#94a3b8;--primary:#4f46e5;--primary-hover:#4338ca;--accent:#0891b2;--accent-hover:#0e7490;--danger:#ef4444;--border:#1f2937;--focus:#a5b4fc;--shadow:0 4px 6px -1px rgba(0,0,0,0.3),0 2px 4px -1px rgba(0,0,0,0.2);--shadow-lg:0 10px 15px -3px rgba(0,0,0,0.4),0 4px 6px -2px rgba(0,0,0,0.3);--radius:0.5rem;--container-max:1200px}
+
+/* Typography */
+h1{font-size:clamp(2rem,5vw,3.5rem);font-weight:800;line-height:1.1;letter-spacing:-0.02em;color:var(--text-primary)}h2{font-size:clamp(1.75rem,4vw,2.5rem);font-weight:700;line-height:1.2;letter-spacing:-0.01em;color:var(--text-primary)}h3{font-size:1.25rem;font-weight:600;line-height:1.3;color:var(--text-primary)}.lead{font-size:clamp(1.125rem,2.5vw,1.25rem);line-height:1.6;color:var(--text-muted)}
+
+/* Layout */
+.container{max-width:var(--container-max);margin:0 auto;padding:0 1rem}
+
+/* Buttons */
+/* ================== Buttons (drop-in) ================== */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:0.875rem 2rem;
+  border-radius:var(--radius);
+  font-weight:600;
+  text-decoration:none;
+  border:none;
+  cursor:pointer;
+  transition:all .2s ease;
+  position:relative;
+  overflow:hidden;
+}
+
+.btn:focus{outline:2px solid var(--focus); outline-offset:2px}
+
+/* Variants */
+.btn-primary{
+  background:linear-gradient(135deg,var(--primary),var(--accent));
+  color:#fff;
+  box-shadow:var(--shadow);
+}
+.btn-primary:hover{
+  background:linear-gradient(135deg,var(--primary-hover),var(--accent-hover));
+  transform:translateY(-2px);
+  box-shadow:var(--shadow-lg);
+}
+
+.btn-secondary{
+  background:transparent;
+  color:var(--primary);
+  border:2px solid var(--primary);
+}
+.btn-secondary:hover{
+  background:var(--primary);
+  color:#fff;
+}
+
+/* ===== Centering helpers (non-breaking) =====
+   Use exactly one of these, depending on your layout.
+*/
+
+/* A) Wrap the button inside a flex row and center */
+.cta-row{ display:flex; justify-content:center; gap:.75rem; }
+
+/* B) Center a single button without changing parent layout */
+.btn--center{
+  display:block;          /* enables auto margins */
+  width:max-content;      /* shrink to fit content */
+  margin-inline:auto;     /* horizontal centering */
+}
+
+/* C) If parent is a grid and you want full centering */
+.center-grid{ display:grid; place-items:center; }
+
+/* Optional: full-width on mobile, auto on larger screens */
+@media (max-width:640px){
+  .btn--stack{ width:100%; }
+}
+
+
+/* Hero Section */
+.hero{padding:4rem 0;position:relative;overflow:hidden;background:linear-gradient(135deg,var(--bg-primary) 0%,#0c1426 100%)}.hero .container{text-align:center}.badge{display:inline-block;background:rgba(239,68,68,0.2);color:var(--danger);padding:0.5rem 1rem;border-radius:9999px;font-size:0.875rem;font-weight:500;margin-bottom:2rem;border:1px solid rgba(239,68,68,0.3)}.gradient-text{background:linear-gradient(135deg,var(--primary),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+/* Objection Handling */
+.objection-handling{margin:2rem 0 3rem}.objection-chips{display:flex;flex-wrap:wrap;gap:0.75rem;justify-content:center;margin-bottom:1.5rem}.chip{background:var(--bg-surface);border:2px solid var(--border);border-radius:9999px;padding:0.5rem 1rem;font-size:0.875rem;cursor:pointer;transition:all 0.2s ease;color:var(--text-muted)}.chip:hover,.chip.active{background:var(--primary);color:#ffffff;border-color:var(--primary)}.chip:focus{outline:2px solid var(--focus);outline-offset:2px}.objection-answers{background:var(--bg-surface);border-radius:var(--radius);padding:1.5rem;box-shadow:var(--shadow);max-width:600px;margin:0 auto;min-height:80px;border:1px solid var(--border)}.answer{display:none;color:var(--text-primary)}.answer.active{display:block}.cta-group{display:flex;flex-direction:column;gap:1rem;align-items:center;margin-top:2rem}
+
+/* Decorative Blobs */
+.hero-blob-1,.hero-blob-2{position:absolute;width:200px;height:200px;pointer-events:none;z-index:-1}.hero-blob-1{top:10%;right:10%}.hero-blob-2{bottom:10%;left:10%}
+
+/* Pain Section */
+.pain{padding:4rem 0;background:var(--bg-surface)}.pain h2{text-align:center;margin-bottom:3rem}.pain-grid{display:grid;gap:2rem;grid-template-columns:1fr}.pain-card{background:var(--bg-surface-light);padding:2rem;border-radius:var(--radius);text-align:center;transition:transform 0.2s ease;border:1px solid var(--border)}.pain-card:hover{transform:translateY(-4px)}.pain-icon{width:48px;height:48px;color:var(--danger);margin:0 auto 1rem;stroke-width:1.5}.pain-card h3{margin-bottom:1rem}.pain-card p{color:var(--text-muted);line-height:1.6}
+
+/* Inside Section */
+.inside{padding:4rem 0;background:linear-gradient(135deg,var(--bg-primary) 0%,#0c1426 100%)}.inside h2{text-align:center;margin-bottom:3rem}.timeline{max-width:800px;margin:0 auto}.timeline-item{display:flex;gap:1.5rem;margin-bottom:2rem}.timeline-number{flex-shrink:0;width:40px;height:40px;background:linear-gradient(135deg,var(--primary),var(--accent));color:#ffffff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700}.timeline-content h3{margin-bottom:0.5rem}.timeline-content p{color:var(--text-muted);line-height:1.6}.cta-center{text-align:center;margin-top:3rem}
+
+/* Proof Section */
+.proof{padding:2rem 0;background:var(--bg-surface)}.proof-badges{display:flex;flex-wrap:wrap;gap:2rem;justify-content:center;align-items:center}.proof-badge{display:flex;align-items:center;gap:0.75rem;padding:0.75rem 1.5rem;background:var(--bg-surface-light);border-radius:var(--radius);border:1px solid var(--border)}.proof-icon{width:24px;height:24px;color:var(--accent)}.proof-badge span{font-weight:500;color:var(--text-primary)}
+
+/* FAQ Section */
+.faq{padding:4rem 0;background:var(--bg-primary)}.faq h2{text-align:center;margin-bottom:3rem}.faq-list{max-width:800px;margin:0 auto}.faq-item{background:var(--bg-surface);border-radius:var(--radius);margin-bottom:1rem;overflow:hidden;border:1px solid var(--border)}.faq-question{width:100%;padding:1.5rem;background:none;border:none;text-align:left;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:600;color:var(--text-primary)}.faq-question:hover{background:var(--bg-surface-light)}.faq-question:focus{outline:2px solid var(--focus);outline-offset:-2px}.faq-icon{width:20px;height:20px;transition:transform 0.2s ease;color:var(--text-muted)}.faq-question[aria-expanded="true"] .faq-icon{transform:rotate(180deg)}.faq-answer{padding:0 1.5rem;max-height:0;overflow:hidden;transition:all 0.3s ease}.faq-answer.open{padding:0 1.5rem 1.5rem;max-height:200px}.faq-answer p{color:var(--text-muted);line-height:1.6}
+
+/* Responsive Design */
+@media (min-width:640px){.objection-chips{flex-wrap:nowrap}.cta-group{flex-direction:row}}@media (min-width:768px){.container{padding:0 2rem}.pain-grid{grid-template-columns:repeat(3,1fr)}.timeline-item{margin-bottom:3rem}}@media (min-width:1024px){.hero{padding:6rem 0}.objection-handling{margin:3rem 0 4rem}.cta-group{margin-top:3rem}}
+
+/* Accessibility */
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important}html{scroll-behavior:auto!important}}
+
+/* Focus Styles */
+.chip:focus,.btn:focus,.faq-question:focus{outline:2px solid var(--focus);outline-offset:2px}
+
+/* Print Styles */
+@media print{.hero-blob-1,.hero-blob-2{display:none}body{background:#ffffff;color:#000000}}
